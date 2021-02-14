@@ -1,0 +1,26 @@
+<main>
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="circle circle3"></div>
+    <div class="circle circle4"></div>
+    <h1 class="box-title">Sign up</h1>
+    <form class="form-container" action="do-user-sign-up.php" method="POST">
+        <?if(isset($_SERVER["QUERY_STRING"]) && $_SERVER["QUERY_STRING"]==="registration_failed"){?>
+            <p class="error-message">registration failed</p>
+        <?}?>
+        <label for="username"> Username:</label>
+        <input class="text-input" type="text" name="username" placeholder="Username" value=""><br>
+        <label for="password"> Passwrod:</label>
+        <input class="text-input" type="password" name="password" placeholder="Password" value=""><br>
+        <label for="passwordx"> Password confirmation:</label>
+        <input class="text-input" type="password" name="passwordx" placeholder="Password confirmation" value=""><br>
+        <label for="firstname"> First name:</label>
+        <input class="text-input" type="text" name="firstname" placeholder="Firstname" value=""><br>
+        <label for="lastname"> Last name:</label>
+        <input class="text-input" type="text" name="lastname" placeholder="Lastname" value=""><br>
+        <div>
+            <input class="btn-input" type="submit" name="create" value="Create">
+                <a href="user-sign-in.php"><div class="btn-input">Sign in</div></a>
+        </div>
+    </form>
+</main>

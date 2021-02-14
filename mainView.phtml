@@ -1,0 +1,23 @@
+<main>
+    <a class="btn-input" href="conversation-list.php">Back</a>
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="circle circle3"></div>
+    <div class="circle circle4"></div>
+    <section>
+        <div id="message-box">
+            <?foreach($list as $message){?>
+            <div>
+                <p id="time"><?= date("D H:i", $message->getTimestamp()) ?></p>
+                <p class="message message-<?= (($message->getSenderId() == $_SESSION["userID"]) ? "sent" : "recived") ?>"><?= $message->getMessage() ?></p>
+            </div>
+            <?}?>
+        </div>
+        <form class="message-form" action="do-send-message.php" method="POST">
+            <input type="text" id="message" name="message" value="" autocomplete="off" required>
+            <input type="text" name="convid" value="<?= $convid ?>" hidden>
+            <input type="text" name="reciverid" value="<?= $rec ?>" hidden>
+            <input type="submit" id="send-btn" name="submit" value="Send">
+        </form>
+    </section>
+</main>

@@ -1,0 +1,20 @@
+<main>  
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="circle circle3"></div>
+    <div class="circle circle4"></div>
+    
+    <section class="conversations-container">
+        <h1>Conversations</h1>
+        <?if(empty($convos)){?>
+            <p>No conversations found</p>    
+        <?}?>
+        <?foreach($convos as $conv){?>
+            <a class="convos" href="mainView.php?<?=$conv->getId()?>">
+                <?=$conv->getTitle()?>, <?=Date("D h:i", $conv->getCreationDateTime())?>
+        </a>
+        <?}?>
+        
+    </section>
+    
+</main>
