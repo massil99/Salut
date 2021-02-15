@@ -5,8 +5,17 @@
         private $dbh = null;
         
         public function __construct(){
-            $this->dbh = mysqli_connect("localhost", "root", "root", "salut");
-            if($this->dbh->connect_error){
+            $configFile = file("../Salut/.config");
+            $configInfo = []; 
+            foreach($configFile as $line)
+                $configInfo[explode(":", $line)[0]] = trim(explode(":", $line)[1]);
+ 
+            $this->dbh = mysqli_connect($configInfo["URL"],
+                                        $configInfo["USERNAME"],
+                                        $configInfo["PASSWORD"],
+                                        $configInfo["DATABASE"]);
+        
+			if($this->dbh->connect_error){
                 echo "MySQLi connection error";
                 exit();
             }
