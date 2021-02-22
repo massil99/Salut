@@ -5,7 +5,7 @@
         private $dbh = null;
         
         public function __construct(){
-            $configFile = file("../Salut/.config");
+            $configFile = file("../src/.config");
             $configInfo = []; 
             foreach($configFile as $line)
                 $configInfo[explode(":", $line)[0]] = trim(explode(":", $line)[1]);
