@@ -17,7 +17,7 @@
             <input type="text" id="message" name="message" value="" autocomplete="off" required>
             <input type="text" name="convid" value="<?= $convid ?>" hidden>
             <input type="text" name="reciverid" value="<?= $rec ?>" hidden>
-            <input type="submit" id="send-btn" name="submit" value="Send">
+            <input type="submit" id="send-btn" name="submit" value="Send" onclick="getConv(<?=$convdd?>)">
         </form>
     </section>
 </main>

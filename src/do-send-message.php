@@ -16,7 +16,7 @@
     $msg = new Message($data);
     $msgdao = new MessageDAO;
     if($msgdao->insert($msg)){
-        header("Refresh:0; url=mainView.php?".$msg->getConversationId());
+        header("mainView.php?".$msg->getConversationId());
     }else{
         header("Location: mainView.php?".$msg->getConversationId());
         exit();
